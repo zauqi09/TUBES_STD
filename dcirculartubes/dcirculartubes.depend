@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1488101746 source:c:\users\uli\documents\std\dcirculartubes\doublecircular.cpp
+	"doublecircular.h"
+	"string.h"
+
+1488100405 c:\users\uli\documents\std\dcirculartubes\doublecircular.h
+	<iostream>
+
+1488101684 source:c:\users\uli\documents\std\dcirculartubes\main.cpp
+	"doublecircular.h"
+	<iostream>
+
