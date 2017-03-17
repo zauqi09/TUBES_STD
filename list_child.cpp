@@ -1,28 +1,28 @@
-#include "singlelist.h"
+#include "list_child.h"
 #include "string.h"
 
-void createList(List &L)
+void createList(List_child &L)
 {
     first(L)=nil;
 
 }
 
-address alokasi (infotype x)
+address_child alokasi (infotype_child x)
 {
-    address p;
-    p=new elmList;
+    address_child p;
+    p=new elmList_child;
     info(p)=x;
     next(p)=nil;
 
     return p;
 }
 
-void dealokasi(address &p)
+void dealokasi(address_child &p)
 {
     delete p;
 }
 
-void insertfirst(List &L, address p)
+void insertfirst(List_child &L, address_child p)
 {
     //address Q;
     if ( first(L) == nil )
@@ -38,9 +38,9 @@ void insertfirst(List &L, address p)
 
     }
 }
-    void insertlast(List &L, address p)
+    void insertlast(List_child &L, address_child p)
     {
-        address q;
+        address_child q;
         if ( first(L) == nil )
         {
             first(L)=p;
@@ -58,9 +58,9 @@ void insertfirst(List &L, address p)
         }
     }
 
-  address findElmById(List L, char id[3])
+  address_child findElmById(List_child L, char id[3])
 {
-    address P;
+    address_child P;
     P = first(L);
     while(P != nil)
     {
@@ -85,7 +85,7 @@ void insertfirst(List &L, address p)
 //        return p;
 //    }
 
-    void deletefirst(List &L, address p)
+    void deletefirst(List_child &L, address_child p)
     {
         if (first(L) == nil)
         {
@@ -99,7 +99,7 @@ void insertfirst(List &L, address p)
         }
     }
 
-    void deletelast(List &L, address p)
+    void deletelast(List_child &L, address_child p)
     {
         if (first(L) == nil)
         {
@@ -107,7 +107,7 @@ void insertfirst(List &L, address p)
         }
         else
         {
-            address q;
+            address_child q;
             q=first(L);
             while (next(next(q)) != nil)
             {
@@ -118,7 +118,7 @@ void insertfirst(List &L, address p)
         }
     }
 
-    void printinfo(List L)
+    void printinfo(List_child L)
     {
         if (first(L)==nil)
         {
@@ -126,8 +126,8 @@ void insertfirst(List &L, address p)
         }
         else
         {
-            infotype x;
-            address p=first(L);
+            infotype_child x;
+            address_child p=first(L);
             do
             {
                 x = info(p);

@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1488275927 source:d:\asdtask\tubes_std\list_parent.cpp
+	"list_parent.h"
+	"string.h"
+
+1488276988 d:\asdtask\tubes_std\list_parent.h
+	<iostream>
+
+1488275889 source:d:\asdtask\tubes_std\list_child.cpp
+	"list_child.h"
+	"string.h"
+
+1488276988 d:\asdtask\tubes_std\list_child.h
+	<iostream>
+
+1488276349 d:\asdtask\tubes_std\define.h
+
