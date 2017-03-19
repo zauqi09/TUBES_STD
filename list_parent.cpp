@@ -1,28 +1,28 @@
-#include "doublecircular.h"
+#include "list_parent.h"
 #include "string.h"
 
-void createList(List &L)
+void createList(List_parent &L)
 {
     first(L) = NULL;
     last(L) = NULL;
 }
 
-address alokasi(infotype x)
+address_parent alokasi(infotype_parent x)
 {
-    address P;
-    P = new elmlist;
+    address_parent P;
+    P = new elmlist_parent;
     info(P) = x;
     next(P) = NULL;
     prev(P) = NULL;
     return P;
 }
 
-void dealokasi(address &P)
+void dealokasi(address_parent &P)
 {
     delete P;
 }
 
-void insertFirst(List &L, address P)
+void insertFirst(List_parent &L, address_parent P)
 {
     if ((first(L) == NULL) && (last(L) == NULL))
     {
@@ -41,7 +41,7 @@ void insertFirst(List &L, address P)
     }
 }
 
-void insertLast(List &L, address P)
+void insertLast(List_parent &L, address_parent P)
 {
     if ((first(L) == NULL) && (last(L) == NULL))
     {
@@ -77,9 +77,9 @@ void insertLast(List &L, address P)
 //    return P;
 //}
 
-address findElmById(List L, char id[3])
+address_parent findElmById(List_parent L, char id[3])
 {
-    address P;
+    address_parent P;
     P = first(L);
     while(P != last(L))
     {
@@ -92,7 +92,7 @@ address findElmById(List L, char id[3])
     return NULL;
 }
 
-void deleteFirst(List &L, address &P)
+void deleteFirst(List_parent &L, address_parent &P)
 {
     if (first(L) == last(L))
     {
@@ -114,7 +114,7 @@ void deleteFirst(List &L, address &P)
     dealokasi(P);
 }
 
-void deleteLast(List &L, address &P)
+void deleteLast(List_parent &L, address_parent &P)
 {
     if (first(L) == last(L))
     {
@@ -136,7 +136,7 @@ void deleteLast(List &L, address &P)
     dealokasi(P);
 }
 
-void printInfo(List L)
+void printInfo(List_parent L)
 {
     if ((first(L) == NULL) && (last(L) == NULL))
     {
@@ -144,8 +144,8 @@ void printInfo(List L)
     }
     else
     {
-        address P;
-        infotype x;
+        address_parent P;
+        infotype_parent x;
         P = first(L);
         while (P != last(L))
         {
@@ -176,7 +176,7 @@ void printInfo(List L)
     }
 }
 
-void insertAfter(List &L, address Prec, address P)
+void insertAfter(List_parent &L, address_parent Prec, address_parent P)
 {
     next(P) = next(Prec);
     prev(P) = Prec;
@@ -184,7 +184,7 @@ void insertAfter(List &L, address Prec, address P)
     next(Prec) = P;
 }
 
-void deleteAfter(List &L, address Prec, address &P)
+void deleteAfter(List_parent &L, address_parent Prec, address_parent &P)
 {
     P = next(Prec);
     next(Prec) = next(P);
