@@ -52,9 +52,9 @@ void insertfirst(List_child &L, address_child p)
             while(next (q) !=nil)
             {
                 q=next(q);
-                next(q)=p;
             }
-
+            next(q)=p;
+            next(p) = nil;
         }
     }
 
@@ -118,19 +118,8 @@ void insertfirst(List_child &L, address_child p)
         }
     }
 
-    void printinfo(List_child L)
-    {
-        if (first(L)==nil)
-        {
-            cout<<"list kosong"<<endl;
-        }
-        else
-        {
-            infotype_child x;
-            address_child p=first(L);
-            do
-            {
-                x = info(p);
+    void print(infotype_child x) {
+
                 cout << "ID :";
                 cout << x.id << endl;
                 cout << "Nama Bus :";
@@ -143,9 +132,46 @@ void insertfirst(List_child &L, address_child p)
                 cout << x.noplat << endl;
                 cout << "Kota Asal Bus :";
                 cout << x.kotaasal << endl;
+    }
+
+    void printinfo(List_child L)
+    {
+        if (first(L)==nil)
+        {
+            cout<<"list kosong"<<endl;
+        }
+        else
+        {
+            infotype_child x;
+            address_child p=first(L);
+            do
+            {
+                print(info(p));
                 p=next(p);
             }
             while (p!=nil);
-
             }
     }
+
+void sort(List_child &L) {
+
+    int swapped = 1;
+    address_child P;
+    infotype_child a, b;
+
+    while (swapped == 1) {
+
+        swapped = 0;
+        P = first(L);
+        while (next(P) != NULL) {
+            a = info(P);
+            b = info(next(P));
+            if (strcmpi(a.id, b.id) > 0) {
+                info(P) = b;
+                info(next(P)) = a;
+                swapped = 1;
+            }
+            P = next(P);
+        }
+    }
+}

@@ -15,3 +15,45 @@
 
 1488276349 d:\asdtask\tubes_std\define.h
 
+1489939924 source:c:\users\uli\documents\std\tubes_std\list_child.cpp
+	"list_child.h"
+	"string.h"
+
+1489934201 c:\users\uli\documents\std\tubes_std\list_child.h
+	<iostream>
+
+1489939073 source:c:\users\uli\documents\std\tubes_std\list_parent.cpp
+	"list_parent.h"
+	"string.h"
+
+1489940439 c:\users\uli\documents\std\tubes_std\list_parent.h
+	<iostream>
+
+1489940130 source:c:\users\uli\documents\std\tubes_std\list_relasi.cpp
+	"list_relasi.h"
+
+1489939258 c:\users\uli\documents\std\tubes_std\list_relasi.h
+	"list_relasi.h"
+	"list_child.h"
+	"list_parent.h"
+	<iostream>
+
+1489931872 source:c:\users\uli\documents\std\tubes_std\main.cpp
+	<iostream>
+	"application.h"
+
+1489939209 source:c:\users\uli\documents\std\tubes_std\application.cpp
+	"application.h"
+	<iostream>
+
+1489931623 c:\users\uli\documents\std\tubes_std\application.cpp
+	"list_child.h"
+	"list_parent.h"
+	"list_relasi.h"
+	<iostream>
+
+1489931889 c:\users\uli\documents\std\tubes_std\application.h
+	"list_child.h"
+	"list_parent.h"
+	"list_relasi.h"
+

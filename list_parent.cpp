@@ -89,6 +89,8 @@ address_parent findElmById(List_parent L, char id[3])
         }
         P = next(P);
     }
+    //cek last
+    if (strcmpi(info(P).id,id) == 0) { return P; }
     return NULL;
 }
 
@@ -136,6 +138,21 @@ void deleteLast(List_parent &L, address_parent &P)
     dealokasi(P);
 }
 
+void print(infotype_parent x){
+        cout << "ID :";
+        cout << x.id << endl;
+        cout << "Kota :";
+        cout << x.kota << endl;
+        cout << "Provinsi :";
+        cout << x.pvsi << endl;
+        cout << "Nama Terminal :";
+        cout << x.trml << endl;
+        cout << "Alamat Terminal :";
+        cout << x.almt << endl;
+        cout << "No. Telepon Terminal :";
+        cout << x.telp << endl;
+}
+
 void printInfo(List_parent L)
 {
     if ((first(L) == NULL) && (last(L) == NULL))
@@ -149,30 +166,10 @@ void printInfo(List_parent L)
         P = first(L);
         while (P != last(L))
         {
-            x = info(P);
-            cout << "ID :";
-            cout << x.id << endl;
-            cout << "Kota :";
-            cout << x.kota << endl;
-            cout << "Provinsi :";
-            cout << x.pvsi << endl;
-            cout << "Alamat Terminal :";
-            cout << x.almt << endl;
-            cout << "No. Telepon Terminal :";
-            cout << x.telp << endl;
+            print(info(P));
             P = next(P);
         }
-        x = info(P);
-        cout << "ID :";
-        cout << x.id << endl;
-        cout << "Kota :";
-        cout << x.kota << endl;
-        cout << "Provinsi :";
-        cout << x.pvsi << endl;
-        cout << "Alamat Terminal :";
-        cout << x.almt << endl;
-        cout << "No. Telepon Terminal :";
-        cout << x.telp << endl;
+        print(info(P));
     }
 }
 
@@ -191,4 +188,39 @@ void deleteAfter(List_parent &L, address_parent Prec, address_parent &P)
     prev(next(P)) = Prec;
     next(P) = NULL;
     prev(P) = NULL;
+}
+
+void sort(List_parent &L) {
+
+    int swapped = 1;
+    address_parent P;
+    infotype_parent a, b;
+
+    while (swapped == 1) {
+
+        swapped = 0;
+        P = first(L);
+        while (P != last(L)) {
+            a = info(P);
+            b = info(next(P));
+            if (strcmpi(a.id, b.id) > 0) {
+                info(P) = b;
+                info(next(P)) = a;
+                swapped = 1;
+            }
+            P = next(P);
+        }
+    }
+}
+
+void deleteElm(List_parent &L, address_parent P) {
+
+    address_parent Q;
+
+    if ((first(L) == P)) {
+        deleteFirst(L, Q);
+    } else {
+        deleteAfter(L, prev(P), Q);
+    }
+    dealokasi(P);
 }

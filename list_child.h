@@ -32,7 +32,7 @@ struct List_child
 };
 
 
-void createlist(List_child &L);
+void createList(List_child &L);
 address_child alokasi(infotype_child x);
 void dealokasi (address_child &p);
 void insertfirst (List_child &L, address_child p);
@@ -41,5 +41,8 @@ void insertlast (List_child &L, address_child p);
 address_child findElmById(List_child L, char id[3]);
 void deletefirst(List_child &L, address_child &p);
 void deletelast(List_child &L, address_child &p);
+void print(infotype_child x);
 void printinfo(List_child L);
+void sort(List_child &L);
+
 #endif // SINGLELIST_H_INCLUDED
