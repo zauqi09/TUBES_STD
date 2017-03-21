@@ -42,8 +42,11 @@ address_parent findElm(List_parent L, infotype_parent x);
 address_parent findElmById(List_parent L, char id[3]);
 void deleteFirst(List_parent &L, address_parent &P);
 void deleteLast(List_parent &L, address_parent &P);
+void print(infotype_parent x);
 void printInfo(List_parent L);
 void insertAfter(List_parent &L, address_parent Prec, address_parent P);
 void deleteAfter(List_parent &L, address_parent Prec, address_parent &P);
+void deleteElm(List_parent &L, address_parent P);
+void sort(List_parent &L);
 
 #endif // DOUBLECIRCULAR_H_INCLUDED
