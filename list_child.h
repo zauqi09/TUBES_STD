@@ -9,12 +9,12 @@ using namespace std;
 
 struct child
 {
-    char id[3];
-    string nama;
-    string kelas;
-    string viatol;
-    string noplat;
-    string kotaasal;
+    char id[32];
+    char nama[32];
+    char kelas[32];
+    char viatol[32];
+    char noplat[32];
+    char kotaasal[32];
 
 };
 //typedef struct child *id;
@@ -40,7 +40,7 @@ void insertlast (List_child &L, address_child p);
 void deleteafter(List_child &L, address_child q, address_child p);
 void insertafter(List_child &L, address_child prec, address_child p);
 //address findelm(List L, infotype x);
-address_child findElmById(List_child L, char id[3]);
+address_child findElmById(List_child L, char id[32]);
 void deletefirst(List_child &L, address_child &p);
 void deletelast(List_child &L, address_child &p);
 void print(infotype_child x);

@@ -11,11 +11,11 @@ using namespace std;
 #define info(P) P->info
 
 struct parent{
-    char id[3];
-    string kota;
-    string pvsi;
-    string trml;
-    string almt;
+    char id[32];
+    char kota[32];
+    char pvsi[32];
+    char trml[32];
+    char almt[32];
     int telp;
 };
 
@@ -39,7 +39,7 @@ void dealokasi(address_parent &P);
 void insertFirst(List_parent &L, address_parent P);
 void insertLast(List_parent &L, address_parent P);
 address_parent findElm(List_parent L, infotype_parent x);
-address_parent findElmById(List_parent L, char id[3]);
+address_parent findElmById(List_parent L, char id[32]);
 void deleteFirst(List_parent &L, address_parent &P);
 void deleteLast(List_parent &L, address_parent &P);
 void print(infotype_parent x);

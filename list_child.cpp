@@ -58,7 +58,7 @@ void insertfirst(List_child &L, address_child p)
         }
     }
 
-  address_child findElmById(List_child L, char id[3])
+  address_child findElmById(List_child L, char id[32])
 {
     address_child P;
     P = first(L);

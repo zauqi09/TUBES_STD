@@ -72,7 +72,7 @@ void dealokasi(address_relasi &P){
 address_relasi findElm(List_relasi L, address_parent P, address_child C) {
     address_relasi Q = first(L);
     while(Q != NULL) {
-        if(parent(Q)==P && child(Q)== C) {
+        if((parent(Q)==P) && (child(Q)== C)) {
             return Q;
         }
         Q = next(Q);
@@ -188,7 +188,7 @@ void deleteByChild(List_relasi &L, address_child P) {
     }
 }
 
-void urutdatarelasi(List_relasi &L) {
+void urutdatarelasi(List_relasi L) {
     int swapped = 1;
     address_relasi P,Q;
     while (swapped == 1) {
@@ -197,7 +197,7 @@ void urutdatarelasi(List_relasi &L) {
         while (P != nil) {
             Q = P;
             P = next(P);
-            if (strcmpi((info(parent(Q)).id), (info(parent(Q)).id)) > 0) {
+            if (strcmpi(info(parent(Q)).id,info(parent(P)).id) > 0) {
                 next(Q) = next(P);
                 next(P) = NULL;
                 insertFirst(L,P);

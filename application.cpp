@@ -34,7 +34,7 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
         cout << "10. delete data relasi." <<endl;
         cout << "11. delete data parent." <<endl;
         cout << "12. delete data child." <<endl;
-        cout << "13. urutkan data relasi." <<endl;
+        cout << "13. urutkan data relasi.(disabled)" <<endl;
         cout << "0. keluar" <<endl;
         cout << "Masukkan pilihan: "<<endl;
         cin >> inputmenu;
@@ -144,7 +144,7 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
             P1 = findElmById(LP, x.id);
             P2 = findElmById(LC, y.id);
             if (P1 == NULL){
-                cout << "ID Terminal tidak ditermukan." <<endl;
+                cout << "ID Kota tidak ditermukan." <<endl;
             }
             else if (P2 == NULL){
                 cout << "ID Bus tidak ditemukan." <<endl;
@@ -176,14 +176,15 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
             cin >> y.id;
             P1 = findElmById(LP, x.id);
             P2 = findElmById(LC, y.id);
+            P3 = findElm(LR, P1, P2);
             if (P1 == NULL){
-                cout << "ID Terminal tidak ditermukan." <<endl;
+                cout << "ID Kota tidak ditermukan." <<endl;
             }
             else if (P2 == NULL){
                 cout << "ID Bus tidak ditemukan." <<endl;
             }
             else {
-                if (findElm(LR, P1, P2) != NULL){
+                if (P3!= NULL){
                     print(P3);
                 }
                 else{
@@ -243,9 +244,10 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
             break;
         case 13:
             system("cls");
-            cout<<"Urut Data Relasi"<<endl;
-            sort(LP);
-            urutdatarelasi(LR);
+            cout<<"Disabled"<<endl;
+            //sort(LP);
+            //urutdatarelasi(LR);
+            //printInfo(LS);
             getch();
         case 0:
             break;

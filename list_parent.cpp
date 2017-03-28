@@ -77,7 +77,7 @@ void insertLast(List_parent &L, address_parent P)
 //    return P;
 //}
 
-address_parent findElmById(List_parent L, char id[3])
+address_parent findElmById(List_parent L, char id[32])
 {
     address_parent P;
     P = first(L);

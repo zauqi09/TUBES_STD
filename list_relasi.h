@@ -42,6 +42,6 @@ void dealokasi(address_relasi &P);
 address_relasi findElm(List_relasi L, address_parent P, address_child C);
 void print(address_relasi P);
 void printInfo(List_relasi L);
-void urutdatarelasi(List_relasi &L);
+void urutdatarelasi(List_relasi L);
 
 #endif // LIST_RELASI_H_INCLUDED
