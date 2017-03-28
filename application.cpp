@@ -34,7 +34,7 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
         cout << "10. delete data relasi." <<endl;
         cout << "11. delete data parent." <<endl;
         cout << "12. delete data child." <<endl;
-        cout << "13. urutkan data relasi.(disabled)" <<endl;
+        cout << "13. urutkan data relasi." <<endl;
         cout << "0. keluar" <<endl;
         cout << "Masukkan pilihan: "<<endl;
         cin >> inputmenu;
@@ -244,10 +244,11 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
             break;
         case 13:
             system("cls");
-            cout<<"Disabled"<<endl;
+            cout<<"Urut Data Relasi"<<endl;
             //sort(LP);
-            //urutdatarelasi(LR);
-            //printInfo(LS);
+            List_relasi LS;
+            urutdatarelasi(LR);
+            printInfo(LR);
             getch();
         case 0:
             break;

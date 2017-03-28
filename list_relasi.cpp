@@ -187,25 +187,43 @@ void deleteByChild(List_relasi &L, address_child P) {
         }
     }
 }
-
-void urutdatarelasi(List_relasi L) {
-    int swapped = 1;
-    address_relasi P,Q;
-    while (swapped == 1) {
-        swapped = 0;
-        P = first(L);
-        while (P != nil) {
-            Q = P;
-            P = next(P);
-            if (strcmpi(info(parent(Q)).id,info(parent(P)).id) > 0) {
-                next(Q) = next(P);
-                next(P) = NULL;
-                insertFirst(L,P);
-                swapped = 1;
-            }
-            P = next(P);
-        }
+address_relasi findMax(List_relasi &L)
+{
+    address_relasi P,max;
+    P=NULL;
+    if (first(L)==NULL)
+    {
+        return NULL;
     }
+    else
+    {
+        P=first(L);
+        max = P;
+        if (strcmpi(info(parent(P)).id,info(parent(max)).id) > 0)
+        {
+            max=P;
+        }
+        P=max;
+    }
+    return P;
+}
+
+void urutdatarelasi(List_relasi &L) {
+    address_relasi P,Q;
+    address_parent F;
+    address_child B;
+    List_relasi R;
+    createList(R);
+    while (first(L)!=NULL)
+    {
+        P = findMax(L);
+        F = parent(P);
+        B = child(P);
+        deleteElm(L,P);
+        Q = alokasi(F,B);
+        insertFirst(R,Q);
+    }
+    L=R;
 }
 
 
