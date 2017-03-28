@@ -48,5 +48,6 @@ void insertAfter(List_parent &L, address_parent Prec, address_parent P);
 void deleteAfter(List_parent &L, address_parent Prec, address_parent &P);
 void deleteElm(List_parent &L, address_parent P);
 void sort(List_parent &L);
+void printrelasi(infotype_parent x);
 
 #endif // DOUBLECIRCULAR_H_INCLUDED

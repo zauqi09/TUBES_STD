@@ -1,4 +1,5 @@
 #include "list_relasi.h"
+#include "string.h"
 
 void createList(List_relasi &L) {
     first(L) = NULL;
@@ -40,17 +41,28 @@ void insertLast(List_relasi &L, address_relasi P)
 
 void print(address_relasi P) {
 
-    cout<<"Bus"<<" -> "<<"Tujuan"<<endl;
-    print(info(P->parent)); // print info terminal
-    print(info(P->child)); // print info bis
+    cout<<"Kota"<<" <- "<<"Bus"<<endl;
+    printrelasi(info(P->parent));
+    cout<< " <- ";
+    printrelasi(info(P->child));
+    cout<< ""<<endl;
+     // print info terminal
+     // print info bis
 }
 
 void printInfo(List_relasi L) {
     address_relasi P = first(L);
-    while(P !=NULL) {
-        print(P);
-        P = next(P);
-    }
+    if (first(L)==nil)
+        {
+            cout<<"list kosong"<<endl;
+        }
+        else
+        {
+        while(P !=NULL) {
+            print(P);
+            P = next(P);
+        }
+        }
 }
 
 void dealokasi(address_relasi &P){
@@ -150,3 +162,51 @@ void deleteByParent(List_relasi &L, address_parent P) {
         }
     }
 }
+
+void deleteByChild(List_relasi &L, address_child P) {
+
+    address_relasi Q, R, D;
+
+    R = NULL;
+    Q = first(L);
+    while (Q != NULL) {
+
+        if (Q->child == P) {
+            if (R == NULL) {
+                first(L) = next(Q);
+            } else {
+                next(R) = next(Q);
+            }
+            D = Q;
+            Q = next(D);
+            next(D) = NULL;
+            dealokasi(D);
+        } else {
+            R = Q;
+            Q = next(Q);
+        }
+    }
+}
+
+void urutdatarelasi(List_relasi &L) {
+    int swapped = 1;
+    address_relasi P,Q;
+    while (swapped == 1) {
+        swapped = 0;
+        P = first(L);
+        while (P != nil) {
+            Q = P;
+            P = next(P);
+            if (strcmpi((info(parent(Q)).id), (info(parent(Q)).id)) > 0) {
+                next(Q) = next(P);
+                next(P) = NULL;
+                insertFirst(L,P);
+                swapped = 1;
+            }
+            P = next(P);
+        }
+    }
+}
+
+
+

@@ -138,6 +138,10 @@ void deleteLast(List_parent &L, address_parent &P)
     dealokasi(P);
 }
 
+void printrelasi(infotype_parent x) {
+    cout<<"ID : "<<x.id<<" ,Kota : "<<x.kota;
+    }
+
 void print(infotype_parent x){
         cout << "ID :";
         cout << x.id << endl;
@@ -151,6 +155,7 @@ void print(infotype_parent x){
         cout << x.almt << endl;
         cout << "No. Telepon Terminal :";
         cout << x.telp << endl;
+        cout << "" <<endl;
 }
 
 void printInfo(List_parent L)
@@ -224,3 +229,4 @@ void deleteElm(List_parent &L, address_parent P) {
     }
     dealokasi(P);
 }
+

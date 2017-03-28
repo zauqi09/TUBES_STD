@@ -34,6 +34,7 @@ void deleteLast(List_relasi &L, address_relasi &P);
 void deleteAfter(address_relasi Prec, address_relasi &P);
 void deleteElm(List_relasi &L, address_relasi P);
 void deleteByParent(List_relasi &L, address_parent P);
+void deleteByChild(List_relasi &L, address_child P);
 
 /** PERLU MODIFIKASI */
 address_relasi alokasi( address_parent P, address_child C);
@@ -41,6 +42,6 @@ void dealokasi(address_relasi &P);
 address_relasi findElm(List_relasi L, address_parent P, address_child C);
 void print(address_relasi P);
 void printInfo(List_relasi L);
-
+void urutdatarelasi(List_relasi &L);
 
 #endif // LIST_RELASI_H_INCLUDED
