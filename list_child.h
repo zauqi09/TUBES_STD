@@ -7,6 +7,11 @@ using namespace std;
 #define next(P) P->next
 #define info(P) P->info
 
+/**
+     * ADT Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
+
 struct child
 {
     char id[32];

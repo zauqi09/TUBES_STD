@@ -6,6 +6,10 @@
 #include <iostream>
 using namespace std;
 
+/**
+     * ADT Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
 
 #define next(P) P->next
 #define first(L) L.first

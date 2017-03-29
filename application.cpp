@@ -5,7 +5,10 @@
 #include <conio.h>
 
 using namespace std;
-
+/**
+     * Menu dikerjakan bersama-sama biar afdol
+     *
+     */
 void mainmenu(List_parent LP, List_child LC, List_relasi LR)
 {
     int inputmenu;
@@ -21,7 +24,7 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
         cout << "Tugas Besar Struktur Data" <<endl;
         cout << "Oleh : Andaresta Fauzan & Fuad Zauqi Nur" <<endl;
         cout << "" <<endl;
-        cout << "ket : parent = kota, child = bus" <<endl;
+        cout << "Keterangan : parent = kota, child = bus" <<endl;
         cout << "1. insert data parent. " <<endl;
         cout << "2. insert data child. " <<endl;
         cout << "3. view data parent." <<endl;

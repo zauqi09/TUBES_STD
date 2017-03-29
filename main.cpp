@@ -1,6 +1,11 @@
 #include <iostream>
 #include "application.h"
 
+/**
+     * Main.cpp Oleh : AAN
+     * NIM : XXXXXXXX
+     */
+
 using namespace std;
 List_child LC;
 List_parent LP;

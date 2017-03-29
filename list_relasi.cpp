@@ -2,10 +2,18 @@
 #include "string.h"
 
 void createList(List_relasi &L) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     first(L) = NULL;
 }
 
 address_relasi alokasi(address_parent P, address_child C) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     address_relasi Q = new elmlist_relasi;
     child(Q) = C;
     parent(Q) = P;
@@ -14,12 +22,20 @@ address_relasi alokasi(address_parent P, address_child C) {
 }
 
 void insertFirst(List_relasi &L, address_relasi P) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     next(P) = first(L);
     first(L) = P;
 }
 
 void insertLast(List_relasi &L, address_relasi P)
     {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
         address_relasi q;
         if ( first(L) == NULL )
         {
@@ -40,6 +56,10 @@ void insertLast(List_relasi &L, address_relasi P)
     }
 
 void print(address_relasi P) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
 
     cout<<"Kota"<<" <- "<<"Bus"<<endl;
     printrelasi(info(P->parent));
@@ -66,6 +86,10 @@ void printInfo(List_relasi L) {
 }
 
 void dealokasi(address_relasi &P){
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     delete P;
 }
 
@@ -81,12 +105,20 @@ address_relasi findElm(List_relasi L, address_parent P, address_child C) {
 }
 
 void insertAfter(address_relasi &Prec, address_relasi P) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     next(P) = next(Prec);
     next(Prec) = P;
 }
 
   void deleteFirst(List_relasi &L, address_relasi &P)
     {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
         if (first(L) == NULL)
         {
             cout<<"list kosong"<<endl;
@@ -101,6 +133,10 @@ void insertAfter(address_relasi &Prec, address_relasi P) {
 
 void deleteLast(List_relasi &L, address_relasi &P)
     {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
         if (first(L) == NULL)
         {
             cout<<"list kosong"<<endl;
@@ -119,7 +155,6 @@ void deleteLast(List_relasi &L, address_relasi &P)
     }
 
 void deleteElm(List_relasi &L, address_relasi P) {
-
     address_relasi Q, R;
     Q = first(L);
     if (P == Q) {
@@ -164,7 +199,10 @@ void deleteByParent(List_relasi &L, address_parent P) {
 }
 
 void deleteByChild(List_relasi &L, address_child P) {
-
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     address_relasi Q, R, D;
 
     R = NULL;
@@ -189,6 +227,10 @@ void deleteByChild(List_relasi &L, address_child P) {
 }
 address_relasi findMax(List_relasi &L)
 {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     address_relasi P,max;
     P=NULL;
     if (first(L)==NULL)
@@ -209,6 +251,11 @@ address_relasi findMax(List_relasi &L)
 }
 
 void urutdatarelasi(List_relasi &L) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
+
     address_relasi P,Q;
     address_parent F;
     address_child B;
