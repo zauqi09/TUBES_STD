@@ -2,9 +2,9 @@
 #include "application.h"
 
 /**
-     * Main.cpp Oleh : AAN
-     * NIM : XXXXXXXX
-     */
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 
 using namespace std;
 List_child LC;

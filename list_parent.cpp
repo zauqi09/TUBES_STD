@@ -2,12 +2,20 @@
 #include "string.h"
 
 void createList(List_parent &L)
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 {
     first(L) = NULL;
     last(L) = NULL;
 }
 
 address_parent alokasi(infotype_parent x)
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 {
     address_parent P;
     P = new elmlist_parent;
@@ -18,11 +26,19 @@ address_parent alokasi(infotype_parent x)
 }
 
 void dealokasi(address_parent &P)
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 {
     delete P;
 }
 
 void insertFirst(List_parent &L, address_parent P)
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 {
     if ((first(L) == NULL) && (last(L) == NULL))
     {
@@ -42,6 +58,10 @@ void insertFirst(List_parent &L, address_parent P)
 }
 
 void insertLast(List_parent &L, address_parent P)
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 {
     if ((first(L) == NULL) && (last(L) == NULL))
     {
@@ -78,6 +98,10 @@ void insertLast(List_parent &L, address_parent P)
 //}
 
 address_parent findElmById(List_parent L, char id[32])
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 {
     address_parent P;
     P = first(L);
@@ -95,6 +119,10 @@ address_parent findElmById(List_parent L, char id[32])
 }
 
 void deleteFirst(List_parent &L, address_parent &P)
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 {
     if (first(L) == last(L))
     {
@@ -117,6 +145,10 @@ void deleteFirst(List_parent &L, address_parent &P)
 }
 
 void deleteLast(List_parent &L, address_parent &P)
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 {
     if (first(L) == last(L))
     {
@@ -139,10 +171,18 @@ void deleteLast(List_parent &L, address_parent &P)
 }
 
 void printrelasi(infotype_parent x) {
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
     cout<<"ID : "<<x.id<<" ,Kota : "<<x.kota;
     }
 
 void print(infotype_parent x){
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
         cout << "ID :";
         cout << x.id << endl;
         cout << "Kota :";
@@ -159,6 +199,10 @@ void print(infotype_parent x){
 }
 
 void printInfo(List_parent L)
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 {
     if ((first(L) == NULL) && (last(L) == NULL))
     {
@@ -179,6 +223,10 @@ void printInfo(List_parent L)
 }
 
 void insertAfter(List_parent &L, address_parent Prec, address_parent P)
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 {
     next(P) = next(Prec);
     prev(P) = Prec;
@@ -187,6 +235,10 @@ void insertAfter(List_parent &L, address_parent Prec, address_parent P)
 }
 
 void deleteAfter(List_parent &L, address_parent Prec, address_parent &P)
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
 {
     P = next(Prec);
     next(Prec) = next(P);
@@ -196,7 +248,10 @@ void deleteAfter(List_parent &L, address_parent Prec, address_parent &P)
 }
 
 void sort(List_parent &L) {
-
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
     int swapped = 1;
     address_parent P;
     infotype_parent a, b;
@@ -219,7 +274,10 @@ void sort(List_parent &L) {
 }
 
 void deleteElm(List_parent &L, address_parent P) {
-
+/**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+*/
     address_parent Q;
 
     if ((first(L) == P)) {

@@ -71,6 +71,10 @@ void print(address_relasi P) {
 }
 
 void printInfo(List_relasi L) {
+    /**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+     */
     address_relasi P = first(L);
     if (first(L)==nil)
         {
@@ -94,6 +98,10 @@ void dealokasi(address_relasi &P){
 }
 
 address_relasi findElm(List_relasi L, address_parent P, address_child C) {
+    /**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+     */
     address_relasi Q = first(L);
     while(Q != NULL) {
         if((parent(Q)==P) && (child(Q)== C)) {
@@ -155,6 +163,10 @@ void deleteLast(List_relasi &L, address_relasi &P)
     }
 
 void deleteElm(List_relasi &L, address_relasi P) {
+    /**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+     */
     address_relasi Q, R;
     Q = first(L);
     if (P == Q) {
@@ -174,7 +186,10 @@ void deleteElm(List_relasi &L, address_relasi P) {
 }
 
 void deleteByParent(List_relasi &L, address_parent P) {
-
+    /**
+     * Oleh : Andaresta Fauzan
+     * NIM : 1301164189
+     */
     address_relasi Q, R, D;
 
     R = NULL;
