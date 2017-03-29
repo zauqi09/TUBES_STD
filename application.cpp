@@ -205,14 +205,15 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
             cin >> y.id;
             P1 = findElmById(LP, x.id);
             P2 = findElmById(LC, y.id);
+            P3 = findElm(LR, P1, P2);
             if (P1 == NULL){
-                cout << "ID Terminal tidak ditermukan." <<endl;
+                cout << "ID Kota tidak ditermukan." <<endl;
             }
             else if (P2 == NULL){
                 cout << "ID Bus tidak ditemukan." <<endl;
             }
             else {
-                if (findElm(LR, P1, P2) != NULL){
+                if (P3 != NULL){
                     deleteElm(LR, P3);
                 }
                 else{
