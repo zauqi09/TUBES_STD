@@ -3,12 +3,20 @@
 
 void createList(List_child &L)
 {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     first(L)=nil;
 
 }
 
 address_child alokasi (infotype_child x)
 {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     address_child p;
     p=new elmList_child;
     info(p)=x;
@@ -19,12 +27,19 @@ address_child alokasi (infotype_child x)
 
 void dealokasi(address_child &p)
 {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     delete p;
 }
 
 void insertfirst(List_child &L, address_child p)
 {
-    //address Q;
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     if ( first(L) == nil )
     {
         first(L)=p;
@@ -40,6 +55,10 @@ void insertfirst(List_child &L, address_child p)
 }
     void insertlast(List_child &L, address_child p)
     {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
         address_child q;
         if ( first(L) == nil )
         {
@@ -58,8 +77,12 @@ void insertfirst(List_child &L, address_child p)
         }
     }
 
-  address_child findElmById(List_child L, char id[3])
+  address_child findElmById(List_child L, char id[32])
 {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     address_child P;
     P = first(L);
     while(P != nil)
@@ -85,8 +108,12 @@ void insertfirst(List_child &L, address_child p)
 //        return p;
 //    }
 
-    void deletefirst(List_child &L, address_child p)
+    void deletefirst(List_child &L, address_child &p)
     {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
         if (first(L) == nil)
         {
             cout<<"list kosong"<<endl;
@@ -99,8 +126,12 @@ void insertfirst(List_child &L, address_child p)
         }
     }
 
-    void deletelast(List_child &L, address_child p)
+    void deletelast(List_child &L, address_child &p)
     {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
         if (first(L) == nil)
         {
             cout<<"list kosong"<<endl;
@@ -118,6 +149,34 @@ void insertfirst(List_child &L, address_child p)
         }
     }
 
+    void insertafter(List_child &L, address_child prec, address_child p) {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
+    next(p)=next(prec);
+    next(prec)=p;
+
+}
+
+    void deleteafter(List_child &L, address_child q, address_child p) {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
+    p=next(q);
+    next(q)=next(p);
+    next(p)=nil;
+}
+
+    void printrelasi(infotype_child x) {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
+    cout<<"ID : "<<x.id<<" ,Nama Bus : "<<x.nama;
+    }
+
     void print(infotype_child x) {
 
                 cout << "ID :";
@@ -132,6 +191,7 @@ void insertfirst(List_child &L, address_child p)
                 cout << x.noplat << endl;
                 cout << "Kota Asal Bus :";
                 cout << x.kotaasal << endl;
+                cout << "" <<endl;
     }
 
     void printinfo(List_child L)
@@ -175,3 +235,29 @@ void sort(List_child &L) {
         }
     }
 }
+
+void deleteElm(List_child &L, address_child P) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
+    address_child Q,R;
+    Q=first(L);
+    if (Q == P) {
+        deletefirst(L, Q);
+        dealokasi(P);
+    }
+    else {
+        R = Q;
+        Q = next(Q);
+        while ((Q != NULL) && (Q != P)) {
+            R = Q;
+            Q = next(Q);
+        }
+        next(R) = next(P);
+        next(P) = NULL;
+        dealokasi(P);
+    }
+
+}
+

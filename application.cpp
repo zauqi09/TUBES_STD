@@ -1,8 +1,14 @@
 #include "application.h"
 #include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <conio.h>
 
 using namespace std;
-
+/**
+     * Menu dikerjakan bersama-sama biar afdol
+     *
+     */
 void mainmenu(List_parent LP, List_child LC, List_relasi LR)
 {
     int inputmenu;
@@ -13,8 +19,14 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
     infotype_child y;
     do
     {
-        cout << "1. insert data parent." <<endl;
-        cout << "2. insert data child." <<endl;
+        system("cls");
+        cout << "PENDATAAN BUS DAN KOTA TUJUAN" <<endl;
+        cout << "Tugas Besar Struktur Data" <<endl;
+        cout << "Oleh : Andaresta Fauzan & Fuad Zauqi Nur" <<endl;
+        cout << "" <<endl;
+        cout << "Keterangan : parent = kota, child = bus" <<endl;
+        cout << "1. insert data parent. " <<endl;
+        cout << "2. insert data child. " <<endl;
         cout << "3. view data parent." <<endl;
         cout << "4. view data child." <<endl;
         cout << "5. search data parent." <<endl;
@@ -32,6 +44,8 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
         switch (inputmenu)
         {
         case 1:
+            system("cls");
+            cout << "Insert data Kota" <<endl;
             cout << "Masukkan id :" << endl;
             cin >> x.id;
             cout << "Masukkan Nama Kota :" <<endl;
@@ -54,9 +68,11 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
             {
                 cout <<"id sudah ada.";
             }
-
+            getch();
             break;
         case 2:
+            system("cls");
+            cout << "Insert data Bus" <<endl;
             cout << "Masukkan id :" << endl;
             cin >> y.id;
             cout << "Masukkan Nama Bus :" <<endl;
@@ -79,15 +95,23 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
             {
                 cout <<"id sudah ada.";
             }
-
+            getch();
             break;
         case 3:
+            cout<<"Data Kota (Parent)"<<endl;
+            system("cls");
             printInfo(LP);
+            getch();
             break;
         case 4:
+            cout<<"Data Bus (Child)"<<endl;
+            system("cls");
             printinfo(LC);
+            getch();
             break;
         case 5:
+            system("cls");
+            cout<<"Search Data Kota (Parent)"<<endl;
             cout << "Masukkan ID :" <<endl;
             cin >> x.id;
             P1 = findElmById(LP, x.id);
@@ -97,8 +121,11 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
             else {
                 print(info(P1));
             }
+            getch();
             break;
         case 6:
+            system("cls");
+            cout<<"Search Data Bus (Child)"<<endl;
             cout << "Masukkan ID :" <<endl;
             cin >> y.id;
             P2 = findElmById(LC, y.id);
@@ -108,16 +135,19 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
             else {
                 print(info(P2));
             }
+            getch();
             break;
         case 7:
-            cout << "Masukkan ID parent :" <<endl;
+            system("cls");
+            cout<<"Insert Data Relasi"<<endl;
+            cout << "Masukkan ID Kota :" <<endl;
             cin >> x.id;
-            cout << "Masukkan ID child :" <<endl;
+            cout << "Masukkan ID Bus :" <<endl;
             cin >> y.id;
             P1 = findElmById(LP, x.id);
             P2 = findElmById(LC, y.id);
             if (P1 == NULL){
-                cout << "ID Terminal tidak ditermukan." <<endl;
+                cout << "ID Kota tidak ditermukan." <<endl;
             }
             else if (P2 == NULL){
                 cout << "ID Bus tidak ditemukan." <<endl;
@@ -132,34 +162,44 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
                 }
 
             }
+            getch();
             break;
         case 8:
+            cout<<"Data Relasi"<<endl;
+            system("cls");
             printInfo(LR);
+            getch();
             break;
         case 9:
-            cout << "Masukkan ID Tujuan :" <<endl;
+            system("cls");
+            cout<<"Search Data Relasi"<<endl;
+            cout << "Masukkan ID Kota :" <<endl;
             cin >> x.id;
             cout << "Masukkan ID Bus :" <<endl;
             cin >> y.id;
             P1 = findElmById(LP, x.id);
             P2 = findElmById(LC, y.id);
+            P3 = findElm(LR, P1, P2);
             if (P1 == NULL){
-                cout << "ID Terminal tidak ditermukan." <<endl;
+                cout << "ID Kota tidak ditermukan." <<endl;
             }
             else if (P2 == NULL){
                 cout << "ID Bus tidak ditemukan." <<endl;
             }
             else {
-                if (findElm(LR, P1, P2) != NULL){
+                if (P3!= NULL){
                     print(P3);
                 }
                 else{
                     cout << "Relasi tidak ada.";
                 }
             }
+            getch();
             break;
         case 10:
-            cout << "Masukkan ID Tujuan :" <<endl;
+            system("cls");
+            cout<<"Delete Data Relasi"<<endl;
+            cout << "Masukkan ID Kota :" <<endl;
             cin >> x.id;
             cout << "Masukkan ID Bus :" <<endl;
             cin >> y.id;
@@ -179,8 +219,11 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
                     cout << "Relasi tidak ada.";
                 }
             }
+            getch();
             break;
         case 11:
+            system("cls");
+            cout<<"Delete Data Kota (Parent)"<<endl;
             cout << "Masukkan ID parent :" <<endl;
             cin >> x.id;
             P1 = findElmById(LP, x.id);
@@ -188,7 +231,28 @@ void mainmenu(List_parent LP, List_child LC, List_relasi LR)
                 deleteByParent(LR, P1);
                 deleteElm(LP, P1);
             }
+            getch();
             break;
+        case 12:
+            system("cls");
+            cout<<"Delete Data Bus (Child)"<<endl;
+            cout << "Masukkan ID child :" <<endl;
+            cin >> x.id;
+            P2 = findElmById(LC, x.id);
+            if (P2 != NULL){
+                deleteByChild(LR, P2);
+                deleteElm(LC, P2);
+            }
+            getch();
+            break;
+        case 13:
+            system("cls");
+            cout<<"Urut Data Relasi"<<endl;
+            //sort(LP);
+            List_relasi LS;
+            urutdatarelasi(LR);
+            printInfo(LR);
+            getch();
         case 0:
             break;
 

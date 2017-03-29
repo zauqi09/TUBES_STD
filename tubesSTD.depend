@@ -57,3 +57,43 @@
 	"list_parent.h"
 	"list_relasi.h"
 
+1490714386 source:e:\tubes_std\application.cpp
+	"application.h"
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<conio.h>
+
+1490099857 e:\tubes_std\application.h
+	"list_child.h"
+	"list_parent.h"
+	"list_relasi.h"
+
+1490705833 e:\tubes_std\list_child.h
+	<iostream>
+
+1490705833 e:\tubes_std\list_parent.h
+	<iostream>
+
+1490714183 e:\tubes_std\list_relasi.h
+	"list_relasi.h"
+	"list_child.h"
+	"list_parent.h"
+	<iostream>
+
+1490705833 source:e:\tubes_std\list_child.cpp
+	"list_child.h"
+	"string.h"
+
+1490705833 source:e:\tubes_std\list_parent.cpp
+	"list_parent.h"
+	"string.h"
+
+1490713804 source:e:\tubes_std\list_relasi.cpp
+	"list_relasi.h"
+	"string.h"
+
+1490099857 source:e:\tubes_std\main.cpp
+	<iostream>
+	"application.h"
+

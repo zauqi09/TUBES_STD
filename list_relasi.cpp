@@ -1,10 +1,19 @@
 #include "list_relasi.h"
+#include "string.h"
 
 void createList(List_relasi &L) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     first(L) = NULL;
 }
 
 address_relasi alokasi(address_parent P, address_child C) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     address_relasi Q = new elmlist_relasi;
     child(Q) = C;
     parent(Q) = P;
@@ -13,12 +22,20 @@ address_relasi alokasi(address_parent P, address_child C) {
 }
 
 void insertFirst(List_relasi &L, address_relasi P) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     next(P) = first(L);
     first(L) = P;
 }
 
 void insertLast(List_relasi &L, address_relasi P)
     {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
         address_relasi q;
         if ( first(L) == NULL )
         {
@@ -39,28 +56,47 @@ void insertLast(List_relasi &L, address_relasi P)
     }
 
 void print(address_relasi P) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
 
-    cout<<"Bus"<<" -> "<<"Tujuan"<<endl;
-    print(info(P->parent)); // print info terminal
-    print(info(P->child)); // print info bis
+    cout<<"Kota"<<" <- "<<"Bus"<<endl;
+    printrelasi(info(P->parent));
+    cout<< " <- ";
+    printrelasi(info(P->child));
+    cout<< ""<<endl;
+     // print info terminal
+     // print info bis
 }
 
 void printInfo(List_relasi L) {
     address_relasi P = first(L);
-    while(P !=NULL) {
-        print(P);
-        P = next(P);
-    }
+    if (first(L)==nil)
+        {
+            cout<<"list kosong"<<endl;
+        }
+        else
+        {
+        while(P !=NULL) {
+            print(P);
+            P = next(P);
+        }
+        }
 }
 
 void dealokasi(address_relasi &P){
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     delete P;
 }
 
 address_relasi findElm(List_relasi L, address_parent P, address_child C) {
     address_relasi Q = first(L);
     while(Q != NULL) {
-        if(parent(Q)==P && child(Q)== C) {
+        if((parent(Q)==P) && (child(Q)== C)) {
             return Q;
         }
         Q = next(Q);
@@ -69,12 +105,20 @@ address_relasi findElm(List_relasi L, address_parent P, address_child C) {
 }
 
 void insertAfter(address_relasi &Prec, address_relasi P) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
     next(P) = next(Prec);
     next(Prec) = P;
 }
 
   void deleteFirst(List_relasi &L, address_relasi &P)
     {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
         if (first(L) == NULL)
         {
             cout<<"list kosong"<<endl;
@@ -89,6 +133,10 @@ void insertAfter(address_relasi &Prec, address_relasi P) {
 
 void deleteLast(List_relasi &L, address_relasi &P)
     {
+        /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
         if (first(L) == NULL)
         {
             cout<<"list kosong"<<endl;
@@ -107,7 +155,6 @@ void deleteLast(List_relasi &L, address_relasi &P)
     }
 
 void deleteElm(List_relasi &L, address_relasi P) {
-
     address_relasi Q, R;
     Q = first(L);
     if (P == Q) {
@@ -150,3 +197,81 @@ void deleteByParent(List_relasi &L, address_parent P) {
         }
     }
 }
+
+void deleteByChild(List_relasi &L, address_child P) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
+    address_relasi Q, R, D;
+
+    R = NULL;
+    Q = first(L);
+    while (Q != NULL) {
+
+        if (Q->child == P) {
+            if (R == NULL) {
+                first(L) = next(Q);
+            } else {
+                next(R) = next(Q);
+            }
+            D = Q;
+            Q = next(D);
+            next(D) = NULL;
+            dealokasi(D);
+        } else {
+            R = Q;
+            Q = next(Q);
+        }
+    }
+}
+address_relasi findMax(List_relasi &L)
+{
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
+    address_relasi P,max;
+    P=NULL;
+    if (first(L)==NULL)
+    {
+        return NULL;
+    }
+    else
+    {
+        P=first(L);
+        max = P;
+        if (strcmpi(info(parent(P)).id,info(parent(max)).id) > 0)
+        {
+            max=P;
+        }
+        P=max;
+    }
+    return P;
+}
+
+void urutdatarelasi(List_relasi &L) {
+    /**
+     * Oleh : Fuad Zauqi Nur
+     * NIM : 1301164392
+     */
+
+    address_relasi P,Q;
+    address_parent F;
+    address_child B;
+    List_relasi R;
+    createList(R);
+    while (first(L)!=NULL)
+    {
+        P = findMax(L);
+        F = parent(P);
+        B = child(P);
+        deleteElm(L,P);
+        Q = alokasi(F,B);
+        insertFirst(R,Q);
+    }
+    L=R;
+}
+
+
+
